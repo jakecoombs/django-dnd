@@ -7,6 +7,10 @@
     <title>{{ character.name }}</title>
 </head>
 
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'character/style.css' %}">
+
 <body>
     <h1>{{ character.name }}</h1>
 </body>

@@ -1,0 +1,28 @@
+<html lang="en-US">
+
+</html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Races</title>
+</head>
+
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'character/style.css' %}">
+
+<body>
+    <h1>Races</h1>
+
+    {% if race_list %}
+    <ul>
+        {% for race in race_list %}
+        <li><a href="{% url 'character:race' race.id %}">{{ race.name }}</a></li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>No races are available.</p>
+    {% endif %}
+</body>
+
+</html>

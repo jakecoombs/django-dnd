@@ -1,0 +1,19 @@
+<html lang="en-US">
+
+</html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>{{ characterclass.name }}</title>
+</head>
+
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'character/style.css' %}">
+
+<body>
+    <h1>{{ characterclass.name }}</h1>
+    <p>{{ characterclass.description }}</p>
+</body>
+
+</html>

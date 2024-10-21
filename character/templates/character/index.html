@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>DND Characters</title>
+    <title>Home</title>
 </head>
 
 {% load static %}
@@ -12,17 +12,13 @@
 <link rel="stylesheet" href="{% static 'character/style.css' %}">
 
 <body>
-    <h1>DND Characters</h1>
-
-    {% if character_list %}
-    <ul>
-        {% for character in character_list %}
-        <li><a href="{% url 'character:detail' character.id %}">{{ character.name }}</a></li>
-        {% endfor %}
-    </ul>
-    {% else %}
-    <p>No characters are available.</p>
-    {% endif %}
+    <h1>Welcome</h1>
+    <h2>Characters</h2>
+    <a href="{% url 'character:character_list' %}">Create a character</a>
+    <a href="{% url 'character:character_list' %}">See all characters</a>
+    <h2>Info</h2>
+    <a href="{% url 'character:characterclass_list' %}">Classes</a>
+    <a href="{% url 'character:race_list' %}">Races</a>
 </body>
 
 </html>

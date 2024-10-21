@@ -1,0 +1,28 @@
+<html lang="en-US">
+
+</html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Classes</title>
+</head>
+
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'character/style.css' %}">
+
+<body>
+    <h1>Classes</h1>
+
+    {% if characterclass_list %}
+    <ul>
+        {% for characterclass in characterclass_list %}
+        <li><a href="{% url 'character:characterclass' characterclass.id %}">{{ characterclass.name }}</a></li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>No classes are available.</p>
+    {% endif %}
+</body>
+
+</html>
