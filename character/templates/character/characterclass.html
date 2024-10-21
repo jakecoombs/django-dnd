@@ -1,19 +1,13 @@
-<html lang="en-US">
-
-</html>
-
-<head>
-    <meta charset="utf-8" />
-    <title>{{ characterclass.name }}</title>
-</head>
-
+{% extends "character/layout.html" %}
 {% load static %}
 
-<link rel="stylesheet" href="{% static 'character/style.css' %}">
+{% block title %}{{ characterclass.name }}{% endblock title %}
 
-<body>
-    <h1>{{ characterclass.name }}</h1>
-    <p>{{ characterclass.description }}</p>
-</body>
-
-</html>
+{% block content %}
+<header class="container">
+    <hgroup>
+        <h1>{{ characterclass.name }}</h1>
+        <p>{{ characterclass.description }}</p>
+    </hgroup>
+</header>
+{% endblock content %}

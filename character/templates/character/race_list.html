@@ -1,19 +1,11 @@
-<html lang="en-US">
-
-</html>
-
-<head>
-    <meta charset="utf-8" />
-    <title>Races</title>
-</head>
-
+{% extends "character/layout.html" %}
 {% load static %}
 
-<link rel="stylesheet" href="{% static 'character/style.css' %}">
+{% block title %}Races{% endblock title %}
 
-<body>
+{% block content %}
+<main class="container">
     <h1>Races</h1>
-
     {% if race_list %}
     <ul>
         {% for race in race_list %}
@@ -23,6 +15,5 @@
     {% else %}
     <p>No races are available.</p>
     {% endif %}
-</body>
-
-</html>
+</main>
+{% endblock content %}

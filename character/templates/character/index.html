@@ -1,24 +1,33 @@
-<html lang="en-US">
-
-</html>
-
-<head>
-    <meta charset="utf-8" />
-    <title>Home</title>
-</head>
-
+{% extends "character/layout.html" %}
 {% load static %}
 
-<link rel="stylesheet" href="{% static 'character/style.css' %}">
+{% block title %}Home{% endblock title %}
 
-<body>
-    <h1>Welcome</h1>
-    <h2>Characters</h2>
-    <a href="{% url 'character:character_list' %}">Create a character</a>
-    <a href="{% url 'character:character_list' %}">See all characters</a>
-    <h2>Info</h2>
-    <a href="{% url 'character:characterclass_list' %}">Classes</a>
-    <a href="{% url 'character:race_list' %}">Races</a>
-</body>
+{% block content %}
 
-</html>
+<header class="container">
+    <hgroup>
+        <h1>Welcome</h1>
+    </hgroup>
+</header>
+<main class="container">
+    <section>
+        <h2>Characters</h2>
+        <div>
+            <a role="button" href="{% url 'character:character_list' %}">Create a character</a>
+        </div>
+        <a href="{% url 'character:character_list' %}">See all characters</a>
+    </section>
+    <section>
+        <h2>Info</h2>
+        <ul>
+            <li>
+                <a href="{% url 'character:characterclass_list' %}">Classes</a>
+            </li>
+            <li>
+                <a href="{% url 'character:race_list' %}">Races</a>
+            </li>
+        </ul>
+    </section>
+</main>
+{% endblock content %}

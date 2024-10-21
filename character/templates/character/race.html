@@ -1,15 +1,13 @@
-<html lang="en-US">
+{% extends "character/layout.html" %}
+{% load static %}
 
-</html>
+{% block title %}{{ race.name }}{% endblock title %}
 
-<head>
-    <meta charset="utf-8" />
-    <title>{{ race.name }}</title>
-</head>
-
-<body>
-    <h1>{{ race.name }}</h1>
-    <p>{{ race.description }}</p>
-</body>
-
-</html>
+{% block content %}
+<header class="container">
+    <hgroup>
+        <h1>{{ race.name }}</h1>
+        <p>{{ race.description }}</p>
+    </hgroup>
+</header>
+{% endblock content %}
