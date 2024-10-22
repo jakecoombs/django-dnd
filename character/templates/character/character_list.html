@@ -5,11 +5,14 @@
 
 {% block content %}
 <main class="container">
-    <h1>Characters</h1>
+    <div style="display: flex;justify-content: space-between;">
+        <h1>Characters</h1>
+        <a href="{% url 'character:character_create' %}" role="button">Create a character</a>
+    </div>
     {% if character_list %}
     <ul>
         {% for character in character_list %}
-        <li><a href="{% url 'character:detail' character.id %}">{{ character.name }}</a></li>
+        <li><a href="{% url 'character:character' character.id %}">{{ character.name }}</a></li>
         {% endfor %}
     </ul>
     {% else %}

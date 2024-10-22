@@ -1,0 +1,14 @@
+{% extends "character/layout.html" %}
+{% load static %}
+
+{% block title %}Create Character{% endblock title %}
+
+{% block content %}
+
+<form action="{% url 'character:character_create' %}" method="post" class="container">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit">
+</form>
+
+{% endblock content %}

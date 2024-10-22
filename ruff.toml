@@ -1,21 +1,22 @@
 # https://docs.astral.sh/ruff/configuration/
 target-version = "py313"
+exclude = ["**/migrations/**"]
 
 [lint]
 select = [
-    "E", # pycodestyle
-    "F", # flake8
-    "B", # bugbear
-    "C4", # comprehensions
-    "I", # isort
+    "E",    # pycodestyle
+    "F",    # flake8
+    "B",    # bugbear
+    "C4",   # comprehensions
+    "I",    # isort
     "PERF", # perflint
-    "RUF", # ruff rules
-    "RET", # return
-    "SIM", # simplify
-    "TID", # tidy imports
-    "UP", # pyupgrade
+    "RUF",  # ruff rules
+    "RET",  # return
+    "SIM",  # simplify
+    "TID",  # tidy imports
+    "UP",   # pyupgrade
 ]
-ignore=["E501"]
+ignore = ["E501"]
 
 [format]
 quote-style = "double"

@@ -1,6 +1,8 @@
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.views import generic
 
+from character.forms import CharacterForm
 from character.models import Character, CharacterClass, Race
 
 
@@ -21,6 +23,18 @@ class CharcterListView(generic.ListView):
 class CharacterDetailView(generic.DetailView):
     model = Race
     template_name = "character/character.html"
+
+
+def create_character(request):
+    if request.method == "POST":
+        form = CharacterForm(request.POST)
+        if form.is_valid():
+            return HttpResponseRedirect("/thanks/")
+
+    else:
+        form = CharacterForm()
+
+    return render(request, "character/character_create.html", {"form": form})
 
 
 class CharacterClassDetailView(generic.DetailView):
