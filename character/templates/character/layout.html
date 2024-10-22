@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{% endblock title %}</title>
+    <meta name="theme-color" content="#11191f">
+    <!-- Pico.css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2.0.6/css/pico.min.css" />
+</head>
+
+<body>
+    <nav class="container">
+        <ul>
+            <li><strong>DnD Universe</strong></li>
+        </ul>
+        <ul>
+            <li><a href="{% url 'character:index' %}">Home</a></li>
+            <li><a href="{% url 'character:character_list' %}">Characters</a></li>
+            <li>
+                <a href="{% url 'character:characterclass_list' %}">Classes</a>
+            </li>
+            <li>
+                <a href="{% url 'character:race_list' %}">Races</a>
+            </li>
+        </ul>
+    </nav>
+    {% block content %}
+    {% endblock content %}
+</body>
+
+</html>

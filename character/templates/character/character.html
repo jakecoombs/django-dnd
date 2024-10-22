@@ -1,0 +1,12 @@
+{% extends "character/layout.html" %}
+{% load static %}
+
+{% block title %}{{ character.name }}{% endblock title %}
+
+{% block content %}
+<header class="container">
+    <hgroup>
+        <h1>{{ character.name }}</h1>
+    </hgroup>
+</header>
+{% endblock content %}
