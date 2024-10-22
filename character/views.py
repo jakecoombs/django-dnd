@@ -1,5 +1,6 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
+from django.urls import reverse
 from django.views import generic
 
 from character.forms import CharacterForm
@@ -29,7 +30,8 @@ def create_character(request):
     if request.method == "POST":
         form = CharacterForm(request.POST)
         if form.is_valid():
-            return HttpResponseRedirect("/thanks/")
+            # TODO: Create character with `form.cleaned_data`
+            return HttpResponseRedirect(reverse("character:character_list"))
 
     else:
         form = CharacterForm()
