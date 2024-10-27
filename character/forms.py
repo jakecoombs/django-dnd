@@ -1,6 +1,6 @@
 from django import forms
 
-from character.models import CharacterClass, Race
+from character.models import Character, CharacterClass, Race
 
 
 class CharacterForm(forms.Form):
@@ -10,3 +10,22 @@ class CharacterForm(forms.Form):
         choices={i: i for i in CharacterClass.objects.all()}
     )
     level = forms.IntegerField(min_value=1)
+
+
+class CharacterModelForm(forms.ModelForm):
+    class Meta:
+        model = Character
+        fields = (
+            "name",
+            "race",
+            "character_class",
+            "level",
+            "armor_class",
+            "hit_points",
+            "strength",
+            "dexterity",
+            "constitution",
+            "intelligence",
+            "wisdom",
+            "charisma",
+        )
