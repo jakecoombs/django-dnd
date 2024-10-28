@@ -1,0 +1,20 @@
+{% extends "character/layout.html" %}
+{% load static %}
+
+{% block title %}{{ race.name }}{% endblock title %}
+
+{% block content %}
+<header class="container">
+    <hgroup>
+        <h1>{{ race.name }}</h1>
+        <p>{{ race.description }}</p>
+    </hgroup>
+</header>
+<main class="container">
+    <section>
+        <h2>Base Stats</h2>
+        <p>Size: <b>{{ race.get_size_value }}</b></p>
+        <p>Walking Speed: <b>{{ race.speed }}</b></p>
+    </section>
+</main>
+{% endblock content %}

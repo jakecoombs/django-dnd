@@ -1,0 +1,22 @@
+{% extends "character/layout.html" %}
+{% load static %}
+
+{% block title %}Characters{% endblock title %}
+
+{% block content %}
+<main class="container">
+    <div style="display: flex;justify-content: space-between;">
+        <h1>Characters</h1>
+        <a href="{% url 'character:character_create' %}" role="button">Create a character</a>
+    </div>
+    {% if character_list %}
+    <ul>
+        {% for character in character_list %}
+        <li><a href="{% url 'character:character' character.id %}">{{ character.name }}</a></li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>No characters are available.</p>
+    {% endif %}
+</main>
+{% endblock content %}

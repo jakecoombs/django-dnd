@@ -1,0 +1,19 @@
+{% extends "character/layout.html" %}
+{% load static %}
+
+{% block title %}Races{% endblock title %}
+
+{% block content %}
+<main class="container">
+    <h1>Races</h1>
+    {% if race_list %}
+    <ul>
+        {% for race in race_list %}
+        <li><a href="{% url 'character:race' race.id %}">{{ race.name }}</a></li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>No races are available.</p>
+    {% endif %}
+</main>
+{% endblock content %}
