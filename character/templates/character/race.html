@@ -10,4 +10,11 @@
         <p>{{ race.description }}</p>
     </hgroup>
 </header>
+<main class="container">
+    <section>
+        <h2>Base Stats</h2>
+        <p>Size: <b>{{ race.get_size_value }}</b></p>
+        <p>Walking Speed: <b>{{ race.speed }}</b></p>
+    </section>
+</main>
 {% endblock content %}

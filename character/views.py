@@ -63,7 +63,7 @@ class RaceListView(generic.ListView):
         """
         Return all races.
         """
-        return Race.objects.all()
+        return Race.objects.order_by("name").all()
 
 
 class RaceDetailView(generic.DetailView):

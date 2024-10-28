@@ -23,6 +23,9 @@ class Race(models.Model):
     def __str__(self) -> str:
         return self.name
 
+    def get_size_value(self) -> str:
+        return self.Size(self.size).label
+
 
 class CharacterClass(models.Model):
     name = models.CharField(max_length=50)
