@@ -22,7 +22,7 @@ class CharcterListView(generic.ListView):
 
 
 class CharacterDetailView(generic.DetailView):
-    model = Race
+    model = Character
     template_name = "character/character.html"
 
 
@@ -30,8 +30,10 @@ def create_character(request):
     if request.method == "POST":
         form = CharacterModelForm(request.POST)
         if form.is_valid():
-            # TODO: Create character with `form.cleaned_data`
-            return HttpResponseRedirect(reverse("character:character_list"))
+            new_character = form.save()
+            return HttpResponseRedirect(
+                reverse("character:character", args=[new_character.id])
+            )
 
     else:
         form = CharacterModelForm()
