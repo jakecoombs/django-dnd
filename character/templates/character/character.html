@@ -12,8 +12,8 @@
 <main class="container">
     <section>
         <h2>About</h2>
-        <p>Race: <b>{{ character.race }}</b></p>
-        <p>Class: <b>{{ character.character_class }}</b></p>
+        <p>Race: <a href="{% url 'character:race' character.race.id %}">{{ character.race }}</a></p>
+        <p>Class: <a href="{% url 'character:characterclass' character.character_class.id %}">{{ character.character_class }}</a></p>
     </section>
     <section>
         <h2>Stats</h2>

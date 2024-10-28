@@ -53,7 +53,7 @@ class CharacterClassListView(generic.ListView):
         """
         Return all character classes.
         """
-        return CharacterClass.objects.all()
+        return CharacterClass.objects.order_by("name").all()
 
 
 class RaceListView(generic.ListView):
