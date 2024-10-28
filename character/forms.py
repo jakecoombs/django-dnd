@@ -13,6 +13,9 @@ class CharacterForm(forms.Form):
 
 
 class CharacterModelForm(forms.ModelForm):
+    race = forms.ModelChoiceField(Race.objects.order_by("name"))
+    character_class = forms.ModelChoiceField(CharacterClass.objects.order_by("name"))
+
     class Meta:
         model = Character
         fields = (
