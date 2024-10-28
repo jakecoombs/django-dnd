@@ -7,11 +7,11 @@
 <main class="container">
     <h1>Races</h1>
     {% if race_list %}
-    <ul>
+    <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin: 0 auto; gap: 1rem;">
         {% for race in race_list %}
-        <li><a href="{% url 'character:race' race.id %}">{{ race.name }}</a></li>
+        <a role="button" href="{% url 'character:race' race.id %}">{{ race.name }}</a>
         {% endfor %}
-    </ul>
+    </div>
     {% else %}
     <p>No races are available.</p>
     {% endif %}

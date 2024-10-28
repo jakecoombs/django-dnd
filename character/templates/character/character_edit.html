@@ -1,0 +1,17 @@
+{% extends "character/layout.html" %}
+{% load static %}
+
+{% block title %}Edit Character{% endblock title %}
+
+{% block content %}
+
+<main class="container">
+    <h1>Edit Character</h1>
+    <form action="{% url 'character:character_edit' pk %}" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Update">
+    </form>
+</main>
+
+{% endblock content %}

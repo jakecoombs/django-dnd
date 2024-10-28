@@ -12,22 +12,22 @@
 </header>
 <main class="container">
     <section>
-        <h2>Characters</h2>
-        <div>
-            <a role="button" href="{% url 'character:character_create' %}">Create a character</a>
+        <div style="display: flex; justify-content: space-between;align-items: center;">
+            <h2>Recently Created Characters</h2>
+            <div>
+                <a role="button" href="{% url 'character:character_create' %}">Create a character</a>
+            </div>
         </div>
-        <a href="{% url 'character:character_list' %}">See all characters</a>
-    </section>
-    <section>
-        <h2>Info</h2>
+        {% if recent_characters_list %}
         <ul>
-            <li>
-                <a href="{% url 'character:characterclass_list' %}">Classes</a>
-            </li>
-            <li>
-                <a href="{% url 'character:race_list' %}">Races</a>
-            </li>
+            {% for character in recent_characters_list %}
+            <li><a href="{% url 'character:character' character.id %}">{{ character.name }}</a></li>
+            {% endfor %}
         </ul>
+        {% else %}
+        <p>No recently created characters :(</p>
+        {% endif %}
+        <a href="{% url 'character:character_list' %}">See all characters</a>
     </section>
 </main>
 {% endblock content %}

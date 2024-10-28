@@ -1,5 +1,5 @@
 from django.http import HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
 from django.views import generic
 
@@ -8,7 +8,13 @@ from character.models import Character, CharacterClass, Race
 
 
 def index(request):
-    return render(request, "character/index.html")
+    recent_characters_list = Character.objects.order_by("-id").all()[:10]
+
+    return render(
+        request,
+        "character/index.html",
+        {"recent_characters_list": recent_characters_list},
+    )
 
 
 class CharcterListView(generic.ListView):
@@ -39,6 +45,22 @@ def create_character(request):
         form = CharacterModelForm()
 
     return render(request, "character/character_create.html", {"form": form})
+
+
+def edit_character(request, pk):
+    instance = get_object_or_404(Character, pk=pk)
+    if request.method == "POST":
+        form = CharacterModelForm(request.POST, instance=instance)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(
+                reverse("character:character", args=[instance.id])
+            )
+
+    else:
+        form = CharacterModelForm(instance=instance)
+
+    return render(request, "character/character_edit.html", {"form": form, "pk": pk})
 
 
 class CharacterClassDetailView(generic.DetailView):
