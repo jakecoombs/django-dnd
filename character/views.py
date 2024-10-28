@@ -8,7 +8,13 @@ from character.models import Character, CharacterClass, Race
 
 
 def index(request):
-    return render(request, "character/index.html")
+    recent_characters_list = Character.objects.order_by("-id").all()[:10]
+
+    return render(
+        request,
+        "character/index.html",
+        {"recent_characters_list": recent_characters_list},
+    )
 
 
 class CharcterListView(generic.ListView):
