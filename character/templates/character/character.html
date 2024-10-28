@@ -4,10 +4,10 @@
 {% block title %}{{ character.name }}{% endblock title %}
 
 {% block content %}
-<header class="container">
-    <hgroup>
-        <h1>{{ character.name }}</h1>
-    </hgroup>
+<header class="container" style="display: flex; justify-content: space-between;align-items: center;">
+    <h1>{{ character.name }}</h1>
+    <a role="button" href="{% url 'character:character_edit' character.id %}">Edit</a>
+
 </header>
 <main class="container">
     <section>
