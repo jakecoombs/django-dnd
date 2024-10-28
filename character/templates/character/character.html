@@ -9,4 +9,48 @@
         <h1>{{ character.name }}</h1>
     </hgroup>
 </header>
+<main class="container">
+    <section>
+        <h2>About</h2>
+        <p>Race: <b>{{ character.race }}</b></p>
+        <p>Class: <b>{{ character.character_class }}</b></p>
+    </section>
+    <section>
+        <h2>Stats</h2>
+        <table class="striped">
+            <thead>
+                <tr>
+                    <th scope="col">Stat</th>
+                    <th scope="col">Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">Strength</th>
+                    <td>{{ character.strength }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Dexterity</th>
+                    <td>{{ character.dexterity }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Constitution</th>
+                    <td>{{ character.constitution }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Intelligence</th>
+                    <td>{{ character.intelligence }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Wisdom</th>
+                    <td>{{ character.wisdom }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Charisma</th>
+                    <td>{{ character.charisma }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</main>
 {% endblock content %}
