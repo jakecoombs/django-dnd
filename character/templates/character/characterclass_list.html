@@ -7,11 +7,11 @@
 <main class="container">
     <h1>Classes</h1>
     {% if characterclass_list %}
-    <ul>
+    <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin: 0 auto; gap: 1rem;">
         {% for characterclass in characterclass_list %}
-        <li><a href="{% url 'character:characterclass' characterclass.id %}">{{ characterclass.name }}</a></li>
+        <a role="button" href="{% url 'character:characterclass' characterclass.id %}">{{ characterclass.name }}</a>
         {% endfor %}
-    </ul>
+    </div>
     {% else %}
     <p>No classes are available.</p>
     {% endif %}
