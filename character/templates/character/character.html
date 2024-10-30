@@ -17,10 +17,14 @@
     </section>
     <section>
         <h2>Stats</h2>
+        <p>Level: {{ character.level }}</p>
+        <p>Armor Class: {{ character.armor_class }}</p>
+        <p>Max HP: {{ character.hit_points }}</p>
+        <h3>Abilities</h3>
         <table class="striped">
             <thead>
                 <tr>
-                    <th scope="col">Stat</th>
+                    <th scope="col">Name</th>
                     <th scope="col">Value</th>
                     <th scope="col">Modifier</th>
                 </tr>
