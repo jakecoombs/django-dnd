@@ -1,3 +1,5 @@
+from math import floor
+
 from django.core.validators import MinValueValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
@@ -51,3 +53,22 @@ class Character(models.Model):
 
     def __str__(self) -> str:
         return self.name
+
+    def get_abilities(self) -> list[tuple[str, int, str]]:
+        abilities = (
+            ("Strength", self.strength),
+            ("Dexterity", self.dexterity),
+            ("Constitution", self.constitution),
+            ("Intelligence", self.intelligence),
+            ("Wisdom", self.wisdom),
+            ("Charisma", self.charisma),
+        )
+        return [(x[0], x[1], self.get_modifier(x[1])) for x in abilities]
+
+    @staticmethod
+    def get_modifier(value: int) -> str:
+        modifier = floor((value - 10) / 2)
+        if modifier <= 0:
+            return str(modifier)
+
+        return f"+{modifier}"

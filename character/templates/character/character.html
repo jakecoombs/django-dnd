@@ -22,33 +22,17 @@
                 <tr>
                     <th scope="col">Stat</th>
                     <th scope="col">Value</th>
+                    <th scope="col">Modifier</th>
                 </tr>
             </thead>
             <tbody>
+                {% for ability, score, modifier in character.get_abilities %}
                 <tr>
-                    <th scope="row">Strength</th>
-                    <td>{{ character.strength }}</td>
+                    <th scope="row">{{ ability }}</th>
+                    <td>{{ score }}</td>
+                    <td>{{ modifier }}</td>
                 </tr>
-                <tr>
-                    <th scope="row">Dexterity</th>
-                    <td>{{ character.dexterity }}</td>
-                </tr>
-                <tr>
-                    <th scope="row">Constitution</th>
-                    <td>{{ character.constitution }}</td>
-                </tr>
-                <tr>
-                    <th scope="row">Intelligence</th>
-                    <td>{{ character.intelligence }}</td>
-                </tr>
-                <tr>
-                    <th scope="row">Wisdom</th>
-                    <td>{{ character.wisdom }}</td>
-                </tr>
-                <tr>
-                    <th scope="row">Charisma</th>
-                    <td>{{ character.charisma }}</td>
-                </tr>
+                {% endfor %}
             </tbody>
         </table>
     </section>
